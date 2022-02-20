@@ -21,8 +21,8 @@ body {
     background-attachment: fixed;
 }
 
-nav {   
-    background-color: #1b2841;
+nav {
+    height: 10vh;
 }
 
 .content-segment {
@@ -30,31 +30,43 @@ nav {
 }
 
 .content-segment-template {
-    height: 100vh;
+    height: 95vh;
+}
+
+.my-portrait {
+    position: absolute;
+    width: 20vw;
+    height: auto;
+    left: 10%;
+    opacity: 0.2;
 }
 
 .typewriter h1 {
+    font-size: 2.5vw;
     position: relative;
     width: fit-content;
+    font-family: "HelveticaNeue-Light", monospace;
 }
 
 .typewriter h2 {
+    font-size: 2vw;
     color: rgba(255, 255, 255, 0.75) !important;
-    margin-top: 2vh;
     visibility: hidden;
     position: relative;
     width: fit-content;
     animation: appearing-animation 0s var(--h2-appear-after) forwards;
+
+    font-family: "HelveticaNeue-Light", monospace;
 }
 
 .typewriter h4 {
     color: rgba(255, 255, 255, 0.75) !important;
-    margin-top: 3vh;
+    margin-top: 4vh;
+    font-size: 1.5vw;
     visibility: hidden;
     position: relative;
-    width: fit-content;
+    width: 50vw;
     animation: appearing-animation 0s var(--h2-appear-after) forwards;
-    animation-delay: var(--h4-appear-after);
 }
 
 
@@ -104,6 +116,13 @@ nav {
     animation-delay: var(--h2-appear-after);
 }
 
+.typewriter h4 {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation: fade-in-bottom-animation 1s forwards;
+    animation-delay: 4s;
+}
+
 @keyframes typing-animation {
     to {
         left: 100%;
@@ -146,5 +165,17 @@ nav {
 @keyframes blinking-animation {
     to {
         visibility: hidden;
+    }
+}
+
+@keyframes fade-in-bottom-animation {
+    from {
+        opacity: 0;
+        transform: translateY(11%);
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
     }
 }
