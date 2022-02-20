@@ -21,6 +21,10 @@ body {
     background-attachment: fixed;
 }
 
+nav {   
+    background-color: #1b2841;
+}
+
 .content-segment {
     margin-top: 10vh;
 }
