@@ -1,3 +1,12 @@
+:root {
+    /* --bg-colour: linear-gradient(to bottom, #243b55 0%, #141e30 100%); */
+    --bg-colour: #141e30;
+    --type-speed: 1s;
+    --type-steps: 30;
+    --h2-appear-after: 2s;
+    --h4-appear-after: 3.5s;
+}
+
 * {
     color: white !important;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -8,14 +17,130 @@ html {
 }
 
 body {
-    background: linear-gradient(to bottom, #243b55 0%, #141e30 100%);
+    background: var(--bg-colour);
     background-attachment: fixed;
 }
 
 .content-segment {
-    padding-top: 10vh;
+    margin-top: 10vh;
 }
 
 .content-segment-template {
     height: 100vh;
+}
+
+.typewriter h1 {
+    position: relative;
+    width: fit-content;
+}
+
+.typewriter h2 {
+    opacity: 0.75;
+    margin-top: 2vh;
+    visibility: hidden;
+    position: relative;
+    width: fit-content;
+    animation: appearing-animation 0s var(--h2-appear-after) forwards;
+}
+
+.typewriter h4 {
+    opacity: 0.75;
+    margin-top: 3vh;
+    visibility: hidden;
+    position: relative;
+    width: fit-content;
+    animation: appearing-animation 0s var(--h2-appear-after) forwards;
+    animation-delay: var(--h4-appear-after);
+}
+
+
+.typewriter h1::before,
+.typewriter h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.typewriter h2::before,
+.typewriter h2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.typewriter h1::before {
+    background-color: var(--bg-colour);
+    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards;
+}
+
+.typewriter h1::after {
+    width: 0.125em;
+    background-color: black;
+    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
+                disappearing-animation var(--h2-appear-after) steps(5) infinite;
+}
+
+.typewriter h2::before {
+    background-color: var(--bg-colour);
+    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards;
+    animation-delay: var(--h2-appear-after);
+}
+
+.typewriter h2::after {
+    width: 0.125em;
+    background-color: black;
+    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
+                blinking-animation var(--h2-appear-after) steps(5, start) infinite;
+    animation-delay: var(--h2-appear-after);
+}
+
+@keyframes typing-animation {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes appearing-animation {
+    to {
+        visibility: visible;
+    }
+}
+
+@keyframes disappearing-animation {
+    0% {
+        content: "";
+        opacity: 1;
+    }
+    20% {
+        content: "";
+        opacity: 1;
+    }
+    40% {
+        content: "";
+        opacity: 1;
+    }
+    60% {
+        content: "";
+        opacity: 1;
+    }
+    80% {
+        content: "";
+        opacity: 1;
+    }
+    100% {
+        content: none;
+        opacity: 0;
+    }
+}
+
+@keyframes blinking-animation {
+    to {
+        visibility: hidden;
+    }
 }
