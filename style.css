@@ -35,7 +35,7 @@ body {
 }
 
 .typewriter h2 {
-    opacity: 0.75;
+    color: rgba(255, 255, 255, 0.75) !important;
     margin-top: 2vh;
     visibility: hidden;
     position: relative;
@@ -44,7 +44,7 @@ body {
 }
 
 .typewriter h4 {
-    opacity: 0.75;
+    color: rgba(255, 255, 255, 0.75) !important;
     margin-top: 3vh;
     visibility: hidden;
     position: relative;
@@ -81,7 +81,7 @@ body {
 
 .typewriter h1::after {
     width: 0.125em;
-    background-color: black;
+    background-color: white;
     animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
                 disappearing-animation var(--h2-appear-after) steps(5) infinite;
 }
@@ -94,7 +94,7 @@ body {
 
 .typewriter h2::after {
     width: 0.125em;
-    background-color: black;
+    background-color: white;
     animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
                 blinking-animation var(--h2-appear-after) steps(5, start) infinite;
     animation-delay: var(--h2-appear-after);
