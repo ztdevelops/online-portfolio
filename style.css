@@ -1,10 +1,10 @@
 :root {
-    /* --bg-colour: linear-gradient(to bottom, #243b55 0%, #141e30 100%); */
     --bg-colour: #141e30;
     --type-speed: 1s;
     --type-steps: 30;
     --h2-appear-after: 2s;
-    --h4-appear-after: 3.5s;
+    --h4-appear-after: 4s;
+    --secondary-header-text-colour: rgba(255, 255, 255, 0.6);
 }
 
 * {
@@ -24,6 +24,33 @@ body {
 nav {
     height: 10vh;
 }
+
+.intro-contact-me {
+    margin-top: 5vh;
+    visibility: hidden;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation: fade-in-bottom-animation 1s forwards;
+    animation-delay: 4s;
+}
+
+.intro-contact-me button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--secondary-header-text-colour);
+    border-radius: 16px;
+    padding: 1.5vh 3vw;
+    font-size: 1.5vw;
+    color: var(--secondary-header-text-colour) !important;
+    transition: all 0.2s ease-out;
+}
+
+.intro-contact-me button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white !important;
+    border: 1px solid white;
+    transition: all 0.2s ease-in;
+}
+
 
 .content-segment {
     margin-top: 10vh;
@@ -50,7 +77,7 @@ nav {
 
 .typewriter h2 {
     font-size: 2vw;
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: var(--secondary-header-text-colour) !important;
     visibility: hidden;
     position: relative;
     width: fit-content;
@@ -60,13 +87,18 @@ nav {
 }
 
 .typewriter h4 {
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: var(--secondary-header-text-colour) !important;
+    text-align: justify;
+    text-justify: inter-word;
     margin-top: 4vh;
     font-size: 1.5vw;
     visibility: hidden;
     position: relative;
-    width: 50vw;
-    animation: appearing-animation 0s var(--h2-appear-after) forwards;
+    width: 44vw;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation: appearing-animation 0s var(--h2-appear-after) forwards, fade-in-bottom-animation 1s forwards;
+    animation-delay: 4s;
 }
 
 
@@ -114,13 +146,6 @@ nav {
     animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
                 blinking-animation var(--h2-appear-after) steps(5, start) infinite;
     animation-delay: var(--h2-appear-after);
-}
-
-.typewriter h4 {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation: fade-in-bottom-animation 1s forwards;
-    animation-delay: 4s;
 }
 
 @keyframes typing-animation {
