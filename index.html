@@ -21,16 +21,16 @@
         </button>
         <nav>
             <ul id="navigation" class="flex navigation" mobile-expanded="false">
-                <li><a href="#top"><span aria-hidden="true">00</span>Home.</a></li>
-                <li><a href="#about"><span aria-hidden="true">01</span>About.</a></li>
-                <li><a href="#experience"><span aria-hidden="true">02</span>Experience.</a></li>
-                <li><a href="#contact"><span aria-hidden="true">03</span>Contact.</a></li>
+                <li value="introduction" class="active"><a href="#top"><span aria-hidden="true">00</span>Home.</a></li>
+                <li value="about"><a href="#about"><span aria-hidden="true">01</span>About.</a></li>
+                <li value="experience"><a href="#experience"><span aria-hidden="true">02</span>Experience.</a></li>
+                <li value="contact"><a href="#contact"><span aria-hidden="true">03</span>Contact.</a></li>
 
             </ul>
         </nav>
     </header>
 
-    <div class="container introduction-segment">
+    <section id="introduction" class="container introduction-segment">
         <img class="my-portrait" src="./src/user-placeholder.png">
         <div class="typewriter">
             <h1>
@@ -50,27 +50,25 @@
                 </button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div>
-        <div id="about" class="container content-segment content-segment-template">
+        <section id="about" class="container content-segment content-segment-template">
             <h1>
                 About Me
             </h1>
-        </div>
+        </section>
 
-        <div id="experience" class="container content-segment content-segment-template">
+        <section id="experience" class="container content-segment content-segment-template">
             <h1>
                 My Experience
             </h1>
-        </div>
+        </section>
 
-        <div id="contact" class="container content-segment content-segment-template">
+        <section id="contact" class="container content-segment content-segment-template">
             <h1>
                 Contact Me
             </h1>
-        </div>
-    </div>
+        </section>
 </body>
 
 </html>
