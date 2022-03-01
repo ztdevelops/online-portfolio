@@ -3,7 +3,6 @@
     --primary-colour: gold;
     --bg-colour-rgb: 20, 30, 48;
     --type-speed: 1s;
-    --type-steps: 30;
     --h2-appear-after: 2s;
     --h4-appear-after: 4s;
     --secondary-header-text-colour: rgba(255, 255, 255, 0.6);
@@ -222,27 +221,27 @@ section h4 {
 
 .typewriter h1::before {
     background-color: var(--bg-colour);
-    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards;
+    animation: typing-animation var(--type-speed) steps(33) forwards;
 }
 
 .typewriter h1::after {
     width: 0.125em;
     background-color: white;
-    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards,
+    animation: typing-animation var(--type-speed) steps(33) forwards,
                 blinking-animation 1.5s steps(5, start) infinite,
                 disappearing-animation var(--h2-appear-after) steps(1) forwards;
 }
 
 .typewriter h2::before {
     background-color: var(--bg-colour);
-    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards;
+    animation: typing-animation var(--type-speed) steps(26) forwards;
     animation-delay: var(--h2-appear-after);
 }
 
 .typewriter h2::after {
     width: 0.125em;
     background-color: white;
-    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
+    animation: typing-animation var(--type-speed) steps(26) forwards, 
                 blinking-animation 1.5s steps(5, start) infinite;
     animation-delay: var(--h2-appear-after);
 }
