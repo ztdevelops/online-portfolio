@@ -308,7 +308,16 @@ section h4 {
         display: none;
     }
 
-    @media (max-width: 850px) {        
+    @media (max-width: 850px) {     
+        .container {
+            width: 100%;
+            margin: 0;
+        }
+        .thin-container {
+            width: 90%;
+            margin: 0 5%;
+        }
+
         .navigation {
             margin: 0;
             --gap: 1.5rem;
@@ -340,15 +349,6 @@ section h4 {
 
         .navigation-toggle[aria-expanded="true"] {
             background: url(src/cross.svg);
-        }
-
-        .container {
-            width: 100%;
-            margin: 0;
-        }
-        .thin-container {
-            width: 90%;
-            margin: 0 5%;
         }
 
         .preamble-segment {
@@ -385,6 +385,11 @@ section h4 {
 
         .about-me-img {
             display: none;
+        }
+
+        .typewriter h1 > span::before {
+            content: "\A";
+            white-space: pre;
         }
     }
 }
