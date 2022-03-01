@@ -1,5 +1,6 @@
 :root {
     --bg-colour: #141e30;
+    --primary-colour: gold;
     --bg-colour-rgb: 20, 30, 48;
     --type-speed: 1s;
     --type-steps: 30;
@@ -84,24 +85,44 @@ body {
     text-decoration: none;
 }
 
-.navigation a > [aria-hidden=true] {
+.navigation a > span {
     font-weight: 700;
     margin-inline-end: 0.5rem;
 }
 
 .active {
-    border-bottom: white 2px solid;
+    border-bottom: var(--primary-colour) 2px solid;
 }
 
-/* Introduction */
+section h2 {
+    font-size: var(--h2-font-size);
+}
+
+section h4 {
+    font-size: var(--h4-font-size);
+    color: var(--secondary-header-text-colour);
+    font-weight: 100;
+}
+
+/* Preamble */
 
 .container {
     width: 70%;
     height: 100vh;
-    padding: 0 15%;
+    margin: 0 15%;
 }
 
-.introduction-segment {
+.thin-container {
+    width: 60%;
+    height: 100vh;
+    margin: 0 20%;
+}
+
+.pad-top {
+    padding-top: 10vh;
+}
+
+.preamble-segment {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -133,15 +154,6 @@ body {
     transition: all 0.2s ease-in;
 }
 
-
-.content-segment {
-    margin-top: 10vh;
-}
-
-.content-segment-template {
-    height: 95vh;
-}
-
 .my-portrait {
     width: 15vw;
     height: 15vw;
@@ -159,7 +171,7 @@ body {
 .typewriter h1 > span {
     font-weight: 700; 
     font-family: 'HelveticaNeue-Light', monospace; 
-    color: white;
+    color: var(--primary-colour);
 }
 
 .typewriter h2 {
@@ -235,6 +247,25 @@ body {
     animation-delay: var(--h2-appear-after);
 }
 
+.about-me-segment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.about-me-txt {
+    width: 50%;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.about-me-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @keyframes typing-animation {
     to {
         left: 100%;
@@ -271,12 +302,12 @@ body {
     }
 }
 
-@media (max-width: 875px) {
+@media (max-width: 960px) {
     .abc {
         display: none;
     }
 
-    @media (max-width: 800px) {        
+    @media (max-width: 850px) {        
         .navigation {
             margin: 0;
             --gap: 1.5rem;
@@ -310,7 +341,12 @@ body {
             background: url(src/cross.svg);
         }
 
-        .introduction-segment {
+        .thin-container {
+            width: 90%;
+            margin: 0 5%;
+        }
+
+        .preamble-segment {
             flex-direction: column;
             justify-content: center;
         }
@@ -321,7 +357,6 @@ body {
         .intro-contact-me {
             margin-left: auto;
             margin-right: auto;
-            
             text-align: center;
         }
     }
