@@ -6,9 +6,9 @@
     --h2-appear-after: 2s;
     --h4-appear-after: 4s;
     --secondary-header-text-colour: rgba(255, 255, 255, 0.6);
-    --h1-font-size: max(2.5vw, 12px);
-    --h2-font-size: max(2vw, 12px);
-    --h4-font-size: max(1.5vw, 12px);
+    --h1-font-size: 2.5vw;
+    --h2-font-size: 2vw;
+    --h4-font-size: 1.5vw;
 
 }
 
@@ -25,6 +25,8 @@ body {
     background: var(--bg-colour);
     background-attachment: fixed;
     overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .sr-only {
@@ -340,7 +342,10 @@ section h4 {
             background: url(src/cross.svg);
         }
 
-        .container,
+        .container {
+            width: 100%;
+            margin: 0;
+        }
         .thin-container {
             width: 90%;
             margin: 0 5%;
@@ -353,15 +358,33 @@ section h4 {
 
         .typewriter h1,
         .typewriter h2,
-        .typewriter h4,
-        .intro-contact-me {
+        .typewriter h4 {
             margin-left: auto;
             margin-right: auto;
             text-align: center;
         }
 
+        .typewriter h1 {
+            font-size: 36px;
+        }
+
+        .typewriter h2,
+        section h2,
+        .about-me-txt {
+            font-size: 16px;
+        }
+
         .typewriter h4 {
+            font-size: 12px;
             width: 80%;
+        }
+
+        .about-me-txt {
+            width: 100%;
+        }
+
+        .about-me-img {
+            display: none;
         }
     }
 }
