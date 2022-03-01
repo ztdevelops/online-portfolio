@@ -1,14 +1,19 @@
 :root {
     --bg-colour: #141e30;
+    --bg-colour-rgb: 20, 30, 48;
     --type-speed: 1s;
     --type-steps: 30;
     --h2-appear-after: 2s;
     --h4-appear-after: 4s;
     --secondary-header-text-colour: rgba(255, 255, 255, 0.6);
+    --h1-font-size: max(2.5vw, 18px);
+    --h2-font-size: max(2vw, 14px);
+    --h4-font-size: max(1.5vw, 12px);
+
 }
 
 * {
-    color: white !important;
+    color: white;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
@@ -19,10 +24,76 @@ html {
 body {
     background: var(--bg-colour);
     background-attachment: fixed;
+    overflow-x: hidden;
 }
 
-nav {
-    height: 10vh;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 2rem);
+}
+
+/* Navigation Bar */
+.header {
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+}
+
+.header a, 
+.header a span {
+    font-family: "HelveticaNeue-Light", monospace;
+    font-size: 1.05rem;
+}
+
+.logo {
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.navigation {
+    list-style: none;
+    margin-inline-end: 2rem;
+}
+
+.navigation-toggle {
+    display: none;
+}
+
+.navigation a {
+    text-decoration: none;
+}
+
+.navigation a > [aria-hidden=true] {
+    font-weight: 700;
+    margin-inline-end: 0.5rem;
+}
+
+/* Introduction */
+
+.container {
+    width: 70%;
+    height: 100vh;
+    padding: 0 15%;
+}
+
+.introduction-segment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .intro-contact-me {
@@ -38,8 +109,8 @@ nav {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid var(--secondary-header-text-colour);
     border-radius: 16px;
-    padding: 1.5vh 3vw;
-    font-size: 1.5vw;
+    padding: 12px 18px;
+    font-size: var(--h4-font-size);
     color: var(--secondary-header-text-colour) !important;
     transition: all 0.2s ease-out;
 }
@@ -61,28 +132,32 @@ nav {
 }
 
 .my-portrait {
-    position: absolute;
-    width: 20vw;
-    height: auto;
-    left: 10%;
+    width: 15vw;
+    height: 15vw;
     opacity: 0.2;
 }
 
 .typewriter h1 {
-    font-size: 2.5vw;
+    font-size: var(--h1-font-size);
+    color: var(--secondary-header-text-colour);
     position: relative;
     width: fit-content;
     font-family: "HelveticaNeue-Light", monospace;
 }
 
+.typewriter h1 > span {
+    font-weight: 700; 
+    font-family: 'HelveticaNeue-Light', monospace; 
+    color: white;
+}
+
 .typewriter h2 {
-    font-size: 2vw;
-    color: var(--secondary-header-text-colour) !important;
+    font-size: var(--h2-font-size);
+    color: var(--secondary-header-text-colour);
     visibility: hidden;
     position: relative;
     width: fit-content;
     animation: appearing-animation 0s var(--h2-appear-after) forwards;
-
     font-family: "HelveticaNeue-Light", monospace;
 }
 
@@ -91,7 +166,7 @@ nav {
     text-align: justify;
     text-justify: inter-word;
     margin-top: 4vh;
-    font-size: 1.5vw;
+    font-size: var(--h4-font-size);
     visibility: hidden;
     position: relative;
     width: 44vw;
@@ -130,8 +205,9 @@ nav {
 .typewriter h1::after {
     width: 0.125em;
     background-color: white;
-    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
-                disappearing-animation var(--h2-appear-after) steps(5) infinite;
+    animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards,
+                blinking-animation 1.5s steps(5, start) infinite,
+                disappearing-animation var(--h2-appear-after) steps(1) forwards;
 }
 
 .typewriter h2::before {
@@ -144,7 +220,7 @@ nav {
     width: 0.125em;
     background-color: white;
     animation: typing-animation var(--type-speed) steps(var(--type-steps)) forwards, 
-                blinking-animation var(--h2-appear-after) steps(5, start) infinite;
+                blinking-animation 1.5s steps(5, start) infinite;
     animation-delay: var(--h2-appear-after);
 }
 
@@ -161,28 +237,7 @@ nav {
 }
 
 @keyframes disappearing-animation {
-    0% {
-        content: "";
-        opacity: 1;
-    }
-    20% {
-        content: "";
-        opacity: 1;
-    }
-    40% {
-        content: "";
-        opacity: 1;
-    }
-    60% {
-        content: "";
-        opacity: 1;
-    }
-    80% {
-        content: "";
-        opacity: 1;
-    }
-    100% {
-        content: none;
+    to {
         opacity: 0;
     }
 }
@@ -202,5 +257,63 @@ nav {
     to {
         opacity: 1;
         visibility: visible;
+    }
+}
+
+@media (max-width: 875px) {
+    .abc {
+        display: none;
+    }
+
+    @media (max-width: 765px) {        
+        .navigation {
+            margin: 0;
+            --gap: 1.5rem;
+            position: fixed;
+            inset: 0 0 0 50%;
+            padding: min(20vh, 4rem) 2rem;
+            flex-direction: column;
+            background: hsl(112, 1%, 100%, 0.1);
+            backdrop-filter: blur(1rem);
+            transform: translateX(100%);
+            transition: transform 250ms ease-out;
+        }
+
+        .navigation[mobile-expanded="true"] {
+            transform: translateX(0%);
+        }
+
+        .navigation-toggle {
+            display: block;
+            border: none;
+            color: white;
+            position: absolute;
+            z-index: 9999;
+            background: url(src/hamburger.svg);
+            background-repeat: no-repeat;
+            background-size: auto;
+            width: 2rem;
+            right: 2rem;
+            aspect-ratio: 1;
+        }
+
+        .navigation-toggle[aria-expanded="true"] {
+            background: url(src/cross.svg);
+        }
+
+        .introduction-segment {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .typewriter h1,
+        .typewriter h2,
+        .typewriter h4,
+        .intro-contact-me {
+            margin-left: auto;
+            margin-right: auto;
+            
+            text-align: center;
+        }
     }
 }
