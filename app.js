@@ -28,3 +28,15 @@ window.onscroll = () => {
         }
     })
 }
+
+function openLink(type) {
+    var targetLink = "";
+    if (type == "i") {
+        targetLink = "https://www.instagram.com/yzhengting_/?hl=en";
+    } else if (type == "t") {
+        targetLink = "https://twitter.com/yzhengting_";
+    } else if (type == "g") {
+        targetLink = "https://github.com/ztdevelops";
+    }
+    window.open(targetLink, "_blank");
+}
