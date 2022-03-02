@@ -11,12 +11,19 @@ navigationToggle.addEventListener('click', () => {
     navigationToggle.setAttribute('aria-expanded', !isExpanded);
 })
 
+window.onload = () => {
+    animateAndHighlight();
+}
+
 window.onscroll = () => {
+    animateAndHighlight();
+}
+
+function animateAndHighlight() {
     var currentScrollItem = "";
 
     sections.forEach((s) => {
-        const sTop = s.offsetTop;
-        if (scrollY >= sTop - (s.clientHeight * 0.5)) {
+        if (scrollY >= s.offsetTop - (s.clientHeight * 0.5)) {
             currentScrollItem = "navbar-" + s.getAttribute('id');
             s.classList.add("segment-animate");
         }
@@ -58,7 +65,7 @@ function scrollToSection(targetID) {
             left: 0,
             behavior: 'smooth'
         });
-    } catch(e) {
+    } catch (e) {
         console.error(e);
     }
 }
