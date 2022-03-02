@@ -3,8 +3,8 @@
     --primary-colour: gold;
     --bg-colour-rgb: 20, 30, 48;
     --type-speed: 1s;
-    --h2-appear-after: 2s;
-    --h4-appear-after: 4s;
+    --h2-appear-after: 2.5s;
+    --h4-appear-after: 5s;
     --secondary-header-text-colour: rgba(255, 255, 255, 0.6);
     --h1-font-size: 2.5vw;
     --h2-font-size: 2vw;
@@ -22,11 +22,16 @@ html {
 }
 
 body {
+    z-index: -999;
     background: var(--bg-colour);
     background-attachment: fixed;
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+}
+
+section {
+    visibility: hidden;
 }
 
 .sr-only {
@@ -84,6 +89,7 @@ body {
 
 .navigation a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navigation a > span {
@@ -95,11 +101,12 @@ body {
     border-bottom: var(--primary-colour) 2px solid;
 }
 
-section h2 {
+.other-segments h2 {
     font-size: var(--h2-font-size);
+
 }
 
-section h4 {
+.other-segments h4 {
     font-size: var(--h4-font-size);
     color: var(--secondary-header-text-colour);
     font-weight: 100;
@@ -144,13 +151,13 @@ section h4 {
     border-radius: 16px;
     padding: 12px 18px;
     font-size: var(--h4-font-size);
-    color: var(--secondary-header-text-colour) !important;
+    color: var(--secondary-header-text-colour);
     transition: all 0.2s ease-out;
 }
 
 .intro-contact-me button:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    color: white !important;
+    color: white;
     border: 1px solid white;
     transition: all 0.2s ease-in;
 }
@@ -186,7 +193,8 @@ section h4 {
 }
 
 .typewriter h4 {
-    color: var(--secondary-header-text-colour) !important;
+    font-weight: 100;
+    color: var(--secondary-header-text-colour);
     text-align: justify;
     text-justify: inter-word;
     margin-top: 4vh;
@@ -197,7 +205,7 @@ section h4 {
     animation-duration: 1s;
     animation-fill-mode: both;
     animation: appearing-animation 0s var(--h2-appear-after) forwards, fade-in-bottom-animation 1s forwards;
-    animation-delay: 4s;
+    animation-delay: var(--h4-appear-after);
 }
 
 
@@ -252,13 +260,20 @@ section h4 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
+.segment-animate {
+    animation: appearing-animation 1s forwards, fade-in-left-animation 750ms forwards;
 }
 
 .about-me-txt {
     width: 50%;
     text-align: justify;
     text-justify: inter-word;
+}
+
+.about-me-txt hl {
+    color: var(--primary-colour);
 }
 
 .about-me-img {
@@ -336,6 +351,18 @@ section h4 {
     }
 }
 
+@keyframes fade-in-left-animation {
+    from {
+        opacity: 0;
+        transform: translateX(-11%);
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 @media (max-width: 960px) {
     .abc {
         display: none;
@@ -402,13 +429,17 @@ section h4 {
         }
 
         .typewriter h2,
-        section h2,
+        .other-segments h2,
         .about-me-txt {
             font-size: 16px;
         }
 
+        .typewriter h4,
+        .other-segments h4 {
+            font-size: 16px;
+        }
+
         .typewriter h4 {
-            font-size: 12px;
             width: 80%;
         }
 

@@ -12,18 +12,19 @@ navigationToggle.addEventListener('click', () => {
 })
 
 window.onscroll = () => {
-    var current = "";
+    var currentScrollItem = "";
 
     sections.forEach((s) => {
         const sTop = s.offsetTop;
         if (scrollY >= sTop - (s.clientHeight * 0.5)) {
-            current = s.getAttribute('id');
+            currentScrollItem = "navbar-" + s.getAttribute('id');
+            s.classList.add("segment-animate");
         }
     })
 
     navigationItems.forEach((i) => {
         i.classList.remove("active");
-        if (i.getAttribute('value') === current) {
+        if (i.getAttribute('id') === currentScrollItem) {
             i.classList.add("active");
         }
     })
@@ -39,4 +40,25 @@ function openLink(type) {
         targetLink = "https://github.com/ztdevelops";
     }
     window.open(targetLink, "_blank");
+}
+
+function scrollToSection(targetID) {
+    var target;
+
+    for (var i = 0; i < sections.length; i++) {
+        if (sections.item(i).getAttribute('id') === targetID.slice(7)) {
+            target = sections.item(i);
+            break;
+        }
+    }
+
+    try {
+        window.scrollTo({
+            top: target.offsetTop,
+            left: 0,
+            behavior: 'smooth'
+        });
+    } catch(e) {
+        console.error(e);
+    }
 }
