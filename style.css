@@ -9,7 +9,6 @@
     --h1-font-size: 2.5vw;
     --h2-font-size: 2vw;
     --h4-font-size: 1.5vw;
-
 }
 
 * {
@@ -50,6 +49,15 @@ section {
     gap: var(--gap, 2rem);
 }
 
+.hover-effect * {
+    transition: 250ms ease-out;
+}
+
+.hover-effect:hover * {
+    transition: 250ms ease-in;
+    color: white;
+}
+
 /* Navigation Bar */
 .header {
     align-items: center;
@@ -64,6 +72,7 @@ section {
 .header a span {
     font-family: "HelveticaNeue-Light", monospace;
     font-size: 1.05rem;
+    color: var(--secondary-header-text-colour);
 }
 
 .logo,
@@ -87,18 +96,24 @@ section {
     display: none;
 }
 
-.navigation a {
+.navigation li {
     text-decoration: none;
     cursor: pointer;
 }
 
-.navigation a > span {
+
+.navigation li a > span {
     font-weight: 700;
     margin-inline-end: 0.5rem;
 }
 
 .active {
     border-bottom: var(--primary-colour) 2px solid;
+}
+
+.active a,
+.active a span {
+    color: white;
 }
 
 .other-segments h2 {
