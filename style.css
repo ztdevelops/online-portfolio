@@ -49,13 +49,16 @@ section {
     gap: var(--gap, 2rem);
 }
 
+.hover-effect,
 .hover-effect * {
     transition: 250ms ease-out;
 }
 
+.hover-effect:hover,
 .hover-effect:hover * {
     transition: 250ms ease-in;
     color: white;
+    opacity: 1;
 }
 
 /* Navigation Bar */
@@ -79,46 +82,55 @@ section {
 .navigation {
     background: hsl(112, 1%, 100%, 0.1);
     backdrop-filter: blur(1rem);
-    padding: 8px;
 }
 
 .logo {
     margin: 1rem;
     cursor: pointer;
+    padding: 8px;
 }
 
 .navigation {
     list-style: none;
-    margin-inline-end: 2rem;
+    margin-inline-end: 1rem;
+    padding: 0 8px;
 }
 
 .navigation-toggle {
     display: none;
 }
 
-.navigation li {
+.navigation li,
+.navigation li * {
     text-decoration: none;
     cursor: pointer;
+    font-weight: 700;
+    padding: 8px 0;
 }
 
-
-.navigation li a > span {
-    font-weight: 700;
+.navigation li a span {
     margin-inline-end: 0.5rem;
 }
 
 .active {
-    border-bottom: var(--primary-colour) 2px solid;
+    border-bottom: var(--primary-colour) 1px solid;
 }
 
-.active a,
-.active a span {
-    color: white;
+.active * {
+    color: white !important;
 }
 
 .other-segments h2 {
     font-size: var(--h2-font-size);
+    align-items: center;
+}
 
+.other-segments h2::after {
+    content: "";
+    flex: 1;
+    height: 0.5px;
+    background-color: white;
+    opacity: 0.2;
 }
 
 .other-segments h4 {
@@ -146,35 +158,8 @@ section {
 }
 
 .preamble-segment {
-    display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.intro-contact-me {
-    margin-top: 5vh;
-    visibility: hidden;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation: fade-in-bottom-animation 1s forwards;
-    animation-delay: 4s;
-}
-
-.intro-contact-me button {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--secondary-header-text-colour);
-    border-radius: 16px;
-    padding: 12px 18px;
-    font-size: var(--h4-font-size);
-    color: var(--secondary-header-text-colour);
-    transition: all 0.2s ease-out;
-}
-
-.intro-contact-me button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid white;
-    transition: all 0.2s ease-in;
 }
 
 .my-portrait {
@@ -272,7 +257,6 @@ section {
 }
 
 .about-me-segment {
-    display: flex;
     align-items: center;
     justify-content: space-between;
 }
@@ -292,7 +276,6 @@ section {
 }
 
 .about-me-img {
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -309,25 +292,18 @@ section {
     width: 2rem;
     height: 2rem;
     opacity: 0.6;
-    transition: 250ms ease-out;
-}
-
-.social-media-button:hover {
-    cursor: pointer;
-    opacity: 1;
-    transition: 250ms ease-in;
 }
 
 .instagram {
-    background: url(src/instagram.svg);
+    background: url(./src/instagram.svg);
 }
 
 .twitter {
-    background: url(src/twitter.svg);
+    background: url(./src/twitter.svg);
 }
 
 .github {
-    background: url(src/github.svg);
+    background: url(./src/github.svg);
 }
 
 @keyframes typing-animation {
@@ -423,7 +399,7 @@ section {
         }
 
         .navigation-toggle[aria-expanded="true"] {
-            background: url(src/cross.svg);
+            background: url(./src/cross.svg);
         }
 
         .preamble-segment {

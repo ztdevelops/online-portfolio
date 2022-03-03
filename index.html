@@ -21,16 +21,16 @@
         </button>
         <nav>
             <ul id="navigation" class="flex navigation" mobile-expanded="false">
-                <li id="navbar-preamble" onclick="scrollToSection(this.id)">
+                <li id="navbar-preamble" class="hover-effect" onclick="scrollToSection(this.id)">
                     <a><span aria-hidden="true">00</span>Preamble.</a>
                 </li>
-                <li id="navbar-about" onclick="scrollToSection(this.id)">
+                <li id="navbar-about" class="hover-effect" onclick="scrollToSection(this.id)">
                     <a><span aria-hidden="true">01</span>About Me.</a>
                 </li>
-                <li id="navbar-experience" onclick="scrollToSection(this.id)">
+                <li id="navbar-experience" class="hover-effect" onclick="scrollToSection(this.id)">
                     <a><span aria-hidden="true">02</span>Experience.</a>
                 </li>
-                <li id="navbar-contact" onclick="scrollToSection(this.id)">
+                <li id="navbar-contact" class="hover-effect" onclick="scrollToSection(this.id)">
                     <a><span aria-hidden="true">03</span>Contact Me.</a>
                 </li>
 
@@ -38,7 +38,7 @@
         </nav>
     </header>
 
-    <section id="preamble" class="container preamble-segment">
+    <section id="preamble" class="container preamble-segment flex">
         <img class="my-portrait" src="./src/user-placeholder.png">
         <div class="typewriter">
             <h1>
@@ -52,16 +52,11 @@
                 based in Singapore. I am a strong, independent learner who aims to
                 do his best in everything he does.
             </h4>
-            <!-- <div class="intro-contact-me">
-                <button type="button">
-                    Contact Me
-                </button>
-            </div> -->
         </div>
     </section>
 
     <section id="about" class="thin-container pad-top other-segments">
-        <h2>
+        <h2 class="flex">
             About Me
         </h2>
         <div class="flex about-me-segment">
@@ -76,32 +71,32 @@
                 years as a software developer! If you see this About Me, you are an early visitor!
             </h4>
 
-            <img class="about-me-img my-portrait" src="./src/user-placeholder.png">
+            <img class="about-me-img my-portrait flex" src="./src/user-placeholder.png">
         </div>
         <div class="social-media flex">
-            <button class="social-media-button instagram" aria-controls="navigation" aria-expanded="false"
+            <button class="social-media-button hover-effect instagram" aria-controls="navigation" aria-expanded="false"
                 onclick="openLink('i')">
                 <span class="sr-only">Instagram</span>
             </button>
-            <button class="social-media-button twitter" aria-controls="navigation" aria-expanded="false"
+            <button class="social-media-button hover-effect twitter" aria-controls="navigation" aria-expanded="false"
                 onclick="openLink('t')">
                 <span class="sr-only">Twitter</span>
             </button>
-            <button class="social-media-button github" aria-controls="navigation" aria-expanded="false"
+            <button class="social-media-button hover-effect github" aria-controls="navigation" aria-expanded="false"
                 onclick="openLink('g')">
                 <span class="sr-only">Github</span>
             </button>
         </div>
     </section>
 
-    <section id="experience" class="thin-container pad-top">
-        <h2>
+    <section id="experience" class="thin-container pad-top other-segments">
+        <h2 class="flex">
             My Experience
         </h2>
     </section>
 
-    <section id="contact" class="thin-container pad-top">
-        <h2>
+    <section id="contact" class="thin-container pad-top other-segments">
+        <h2 class="flex">
             Contact Me
         </h2>
     </section>
