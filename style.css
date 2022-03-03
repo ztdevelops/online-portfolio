@@ -2,6 +2,7 @@
     --bg-colour: #141e30;
     --primary-colour: gold;
     --bg-colour-rgb: 20, 30, 48;
+    --primary-colour-rgb: 255, 215, 0;
     --type-speed: 1s;
     --h2-appear-after: 2.5s;
     --h4-appear-after: 5s;
@@ -33,6 +34,31 @@ section {
     visibility: hidden;
 }
 
+hl {
+    color: var(--primary-colour);
+}
+
+sidebar {
+    position: fixed;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: end;
+    width: 2vw;
+    height: 100%;
+    margin-left: 1rem;
+    animation: appearing-animation 0s var(--h2-appear-after) forwards, fade-in-bottom-animation 1s forwards;
+    animation-delay: var(--h4-appear-after);
+}
+
+sidebar svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    fill: white;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -57,8 +83,19 @@ section {
 .hover-effect:hover,
 .hover-effect:hover * {
     transition: 250ms ease-in;
-    color: white;
+    color: var(--primary-colour);
+    fill: var(--primary-colour);
     opacity: 1;
+}
+
+.social-media-button {
+    display: block;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.6;
 }
 
 /* Navigation Bar */
@@ -92,7 +129,7 @@ section {
 
 .navigation {
     list-style: none;
-    margin-inline-end: 1rem;
+    margin-inline-end: 2rem;
     padding: 0 8px;
 }
 
@@ -117,7 +154,11 @@ section {
 }
 
 .active * {
-    color: white !important;
+    color: var(--primary-colour) !important;
+}
+
+.other-segments h1 {
+    font-size: var(--h1-font-size);
 }
 
 .other-segments h2 {
@@ -147,10 +188,16 @@ section {
     margin: 0 15%;
 }
 
-.thin-container {
+.md-container {
     width: 60%;
     height: 100vh;
     margin: 0 20%;
+}
+
+.sm-container {
+    width: 40%;
+    height: 75vh;
+    margin: 0 30%;
 }
 
 .pad-top {
@@ -262,36 +309,24 @@ section {
 }
 
 .segment-animate {
-    animation: appearing-animation 1s forwards, fade-in-left-animation 750ms forwards;
+    animation: appearing-animation 1s forwards, fade-in-right-animation 750ms forwards;
 }
 
-.about-me-txt {
+.txt-50-justify {
     width: 50%;
     text-align: justify;
     text-justify: inter-word;
 }
 
-.about-me-txt hl {
-    color: var(--primary-colour);
+.txt-75-justify {
+    width: 75%;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .about-me-img {
     align-items: center;
     justify-content: center;
-}
-
-.social-media {
-    margin-top: 2rem;
-}
-
-.social-media-button {
-    display: block;
-    border: none;
-    background-repeat: no-repeat;
-    background-size: auto;
-    width: 2rem;
-    height: 2rem;
-    opacity: 0.6;
 }
 
 .instagram {
@@ -304,6 +339,26 @@ section {
 
 .github {
     background: url(./src/github.svg);
+}
+
+.contact-me-segment a {
+    display: inline-block;
+    padding: 16px;
+    background: transparent;
+    border-radius: 8px;
+    border: rgba(var(--primary-colour-rgb), 0.2) 1px solid;
+    color: rgba(var(--primary-colour-rgb), 0.2);
+    font-size: var(--h4-font-size);
+    cursor: pointer;
+    text-decoration: none;
+    transition: 250ms ease-out;
+}
+
+.contact-me-segment a:hover {
+    border: rgba(var(--primary-colour-rgb), 1) 1px solid;
+    color: rgba(var(--primary-colour-rgb), 1);
+    background: rgba(var(--primary-colour-rgb), 0.1);
+    transition: 250ms ease-in;
 }
 
 @keyframes typing-animation {
@@ -342,10 +397,10 @@ section {
     }
 }
 
-@keyframes fade-in-left-animation {
+@keyframes fade-in-right-animation {
     from {
         opacity: 0;
-        transform: translateX(-11%);
+        transform: translateX(11%);
     }
 
     to {
@@ -364,7 +419,7 @@ section {
             width: 100%;
             margin: 0;
         }
-        .thin-container {
+        .md-container {
             width: 90%;
             margin: 0 5%;
         }
@@ -415,13 +470,15 @@ section {
             text-align: center;
         }
 
-        .typewriter h1 {
+        .typewriter h1,
+        .other-segments h1 {
             font-size: 36px;
         }
 
         .typewriter h2,
         .other-segments h2,
-        .about-me-txt {
+        .txt-50-justify,
+        .txt-75-justify {
             font-size: 16px;
         }
 
@@ -434,7 +491,8 @@ section {
             width: 80%;
         }
 
-        .about-me-txt {
+        .txt-50-justify,
+        .txt-75-justify {
             width: 100%;
         }
 
