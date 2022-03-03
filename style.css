@@ -22,7 +22,6 @@ html {
 }
 
 body {
-    z-index: -999;
     background: var(--bg-colour);
     background-attachment: fixed;
     overflow-x: hidden;
@@ -421,7 +420,23 @@ footer {
         display: none;
     }
 
-    @media (max-width: 850px) {     
+    @media (max-width: 850px) {
+        sidebar {
+            text-align: center;
+            width: 100%;
+            height: fit-content;
+            display: inline-block;
+            position: absolute;
+            top: 90%;
+            margin: 0;
+        }
+        
+        sidebar a {
+            display: inline-block;
+            width: fit-content;
+            margin: 12px;
+        }
+
         footer {
             font-size: 12px;
         }
