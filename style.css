@@ -43,7 +43,7 @@ sidebar {
     display: flex;
     visibility: hidden;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     width: 2vw;
     height: 100%;
     margin-left: 1rem;
@@ -57,6 +57,13 @@ sidebar svg {
     fill: white;
     opacity: 0.6;
     margin-bottom: 1.5rem;
+}
+
+footer {
+    text-align: center;
+    font-size: 1vw;
+    color: var(--secondary-header-text-colour);
+    opacity: 0.2;
 }
 
 .sr-only {
@@ -415,6 +422,9 @@ sidebar svg {
     }
 
     @media (max-width: 850px) {     
+        footer {
+            font-size: 12px;
+        }
         .container {
             width: 100%;
             margin: 0;
