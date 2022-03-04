@@ -4,8 +4,10 @@
     --bg-colour-rgb: 20, 30, 48;
     --primary-colour-rgb: 255, 215, 0;
     --type-speed: 1s;
-    --h2-appear-after: 2.5s;
-    --h4-appear-after: 5s;
+    --blink-speed: 750ms;
+    --h1-delay: 3s;
+    --h2-delay: calc(var(--h1-delay) + var(--type-speed) + 1.5s);
+    --h4-delay: calc(var(--h2-delay) + var(--type-speed) + 1.5s);
     --secondary-header-text-colour: rgba(255, 255, 255, 0.6);
     --h1-font-size: 2.5vw;
     --h2-font-size: 2vw;
@@ -46,8 +48,8 @@ sidebar {
     width: 2vw;
     height: 100%;
     margin-left: 1rem;
-    animation: appearing-animation 0s var(--h2-appear-after) forwards, fade-in-bottom-animation 1s forwards;
-    animation-delay: var(--h4-appear-after);
+    animation:  appearing-animation 0s var(--h4-delay) forwards,
+                fade-in-bottom-animation 1s var(--h4-delay) forwards;
 }
 
 sidebar svg {
@@ -63,6 +65,7 @@ footer {
     font-size: 1vw;
     color: var(--secondary-header-text-colour);
     opacity: 0.2;
+    margin-top: 16px;
 }
 
 .sr-only {
@@ -114,7 +117,7 @@ footer {
     width: 100%;
 }
 
-.header a, 
+.header a,
 .header a span {
     font-family: "HelveticaNeue-Light", monospace;
     font-size: 1.05rem;
@@ -230,8 +233,8 @@ footer {
 }
 
 .typewriter h1 > span {
-    font-weight: 700; 
-    font-family: 'HelveticaNeue-Light', monospace; 
+    font-weight: 700;
+    font-family: 'HelveticaNeue-Light', monospace;
     color: var(--primary-colour);
 }
 
@@ -241,7 +244,7 @@ footer {
     visibility: hidden;
     position: relative;
     width: fit-content;
-    animation: appearing-animation 0s var(--h2-appear-after) forwards;
+    animation: appearing-animation 0s var(--h2-delay) forwards;
     font-family: "HelveticaNeue-Light", monospace;
 }
 
@@ -257,8 +260,8 @@ footer {
     width: 44vw;
     animation-duration: 1s;
     animation-fill-mode: both;
-    animation: appearing-animation 0s var(--h2-appear-after) forwards, fade-in-bottom-animation 1s forwards;
-    animation-delay: var(--h4-appear-after);
+    animation:  appearing-animation 0s var(--h4-delay) forwards,
+                fade-in-bottom-animation 1s var(--h4-delay) forwards;
 }
 
 
@@ -284,29 +287,27 @@ footer {
 
 .typewriter h1::before {
     background-color: var(--bg-colour);
-    animation: typing-animation var(--type-speed) steps(33) forwards;
+    animation: typing-animation var(--type-speed) steps(33) var(--h1-delay) forwards;
 }
 
 .typewriter h1::after {
     width: 0.125em;
     background-color: white;
-    animation: typing-animation var(--type-speed) steps(33) forwards,
-                blinking-animation 1.5s steps(5, start) infinite,
-                disappearing-animation var(--h2-appear-after) steps(1) forwards;
+    animation:  typing-animation var(--type-speed) steps(33) var(--h1-delay) forwards,
+                blinking-animation var(--blink-speed) steps(5, start) infinite,
+                disappearing-animation steps(1) var(--h2-delay) forwards;
 }
 
 .typewriter h2::before {
     background-color: var(--bg-colour);
-    animation: typing-animation var(--type-speed) steps(26) forwards;
-    animation-delay: var(--h2-appear-after);
+    animation: typing-animation var(--type-speed) steps(26) var(--h2-delay) forwards;
 }
 
 .typewriter h2::after {
     width: 0.125em;
     background-color: white;
-    animation: typing-animation var(--type-speed) steps(26) forwards, 
-                blinking-animation 1.5s steps(5, start) infinite;
-    animation-delay: var(--h2-appear-after);
+    animation:  typing-animation var(--type-speed) steps(26) var(--h2-delay) forwards,
+                blinking-animation var(--blink-speed) steps(5, start) infinite;
 }
 
 .about-me-segment {
@@ -315,7 +316,8 @@ footer {
 }
 
 .segment-animate {
-    animation: appearing-animation 1s forwards, fade-in-right-animation 750ms forwards;
+    animation:  appearing-animation 0s 500ms forwards,
+                fade-in-right-animation 750ms 500ms forwards;
 }
 
 .txt-50-justify {
@@ -430,7 +432,7 @@ footer {
             top: 90%;
             margin: 0;
         }
-        
+
         sidebar a {
             display: inline-block;
             width: fit-content;
@@ -440,10 +442,12 @@ footer {
         footer {
             font-size: 12px;
         }
+
         .container {
             width: 100%;
             margin: 0;
         }
+
         .md-container {
             width: 90%;
             margin: 0 5%;
@@ -502,13 +506,11 @@ footer {
 
         .typewriter h2,
         .other-segments h2,
+        .typewriter h4,
+        .other-segments h4,
+        .contact-me-segment a,
         .txt-50-justify,
         .txt-75-justify {
-            font-size: 16px;
-        }
-
-        .typewriter h4,
-        .other-segments h4 {
             font-size: 16px;
         }
 
@@ -528,6 +530,11 @@ footer {
         .typewriter h1 > span::before {
             content: "\A";
             white-space: pre;
+        }
+
+        .contact-me-segment a {
+            border: var(--primary-colour) 1px solid;
+            color: var(--primary-colour);
         }
     }
 }
