@@ -34,7 +34,7 @@ body {
 }
 
 section {
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 ul {
