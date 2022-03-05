@@ -1,7 +1,9 @@
 :root {
-    --bg-colour: #141e30;
+    --dark-bg-colour: #141e30;
+    --light-bg-colour: #17253b;
     --primary-colour: gold;
-    --bg-colour-rgb: 20, 30, 48;
+    --dark-bg-colour-rgb: 20, 30, 48;
+    --light-bg-colour-rgb: 23, 41, 59;
     --primary-colour-rgb: 255, 215, 0;
     --type-speed: 1s;
     --blink-speed: 750ms;
@@ -24,7 +26,7 @@ html {
 }
 
 body {
-    background: var(--bg-colour);
+    background: var(--dark-bg-colour);
     background-attachment: fixed;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -32,7 +34,11 @@ body {
 }
 
 section {
-    visibility: hidden;
+    /* visibility: hidden; */
+}
+
+ul {
+    list-style: none;
 }
 
 hl {
@@ -137,7 +143,6 @@ footer {
 }
 
 .navigation {
-    list-style: none;
     margin-inline-end: 2rem;
     padding: 0 8px;
 }
@@ -158,11 +163,11 @@ footer {
     margin-inline-end: 0.5rem;
 }
 
-.active {
+.nav-active {
     border-bottom: var(--primary-colour) 1px solid;
 }
 
-.active * {
+.nav-active * {
     color: var(--primary-colour) !important;
 }
 
@@ -183,7 +188,7 @@ footer {
     opacity: 0.2;
 }
 
-.other-segments h4 {
+.other-segments p {
     font-size: var(--h4-font-size);
     color: var(--secondary-header-text-colour);
     font-weight: 100;
@@ -286,7 +291,7 @@ footer {
 }
 
 .typewriter h1::before {
-    background-color: var(--bg-colour);
+    background-color: var(--dark-bg-colour);
     animation: typing-animation var(--type-speed) steps(33) var(--h1-delay) forwards;
 }
 
@@ -299,7 +304,7 @@ footer {
 }
 
 .typewriter h2::before {
-    background-color: var(--bg-colour);
+    background-color: var(--dark-bg-colour);
     animation: typing-animation var(--type-speed) steps(26) var(--h2-delay) forwards;
 }
 
@@ -337,6 +342,29 @@ footer {
     justify-content: center;
 }
 
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    padding: 0;
+    margin-left: 1rem;
+}
+
+.skill-list li {
+    color: var(--secondary-header-text-colour);
+    font-size: 1rem;
+    margin-block-end: 20px;
+}
+
+.skill-list li::before,
+.content div ul li::before {
+    content: "\2022";
+    color: var(--primary-colour);
+    display: inline-block;
+    width: fit-content;
+    margin-left: -1em;
+    margin-right: 0.3em;
+}
+
 .instagram {
     background: url(./src/instagram.svg);
 }
@@ -347,6 +375,71 @@ footer {
 
 .github {
     background: url(./src/github.svg);
+}
+
+.experience-table {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs button {
+    background-color: var(--dark-bg-colour);
+    border: 0;
+    padding: 16px;
+    width: 90%;
+    font-size: 1rem;
+    color: var(--secondary-header-text-colour);
+    border-left: rgba(255, 255, 255, 0.1) 2px solid;
+    text-align: left;
+}
+.tabs button[aria-selected="true"] {
+    border-left: var(--primary-colour) 2px solid;
+    color: var(--primary-colour);
+    background: var(--light-bg-colour);
+}
+
+.content {
+    width: 100%;
+    padding-top: 16px;
+}
+
+.content div[aria-current="true"] {
+    display: block;
+    animation: stationary-fade-in-animation 500ms forwards;
+}
+
+.content div h3 span {
+    color: var(--primary-colour);
+}
+
+.content div p {
+    font-family: "HelveticaNeue-Light", monospace;
+    font-size: 1rem;
+}
+
+.content div ul {
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.content div ul li {
+    margin: 1rem;
+    text-align: left;
+    color: var(--secondary-header-text-colour);
+}
+
+.content div[aria-current="false"] {
+    display: none;
+}
+
+.content h3 {
+    margin: 0;
 }
 
 .contact-me-segment a {
@@ -416,6 +509,25 @@ footer {
         visibility: visible;
     }
 }
+
+@keyframes stationary-fade-in-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes stationary-fade-out-animation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 
 @media (max-width: 960px) {
     .abc {
@@ -507,7 +619,7 @@ footer {
         .typewriter h2,
         .other-segments h2,
         .typewriter h4,
-        .other-segments h4,
+        .other-segments p,
         .contact-me-segment a,
         .txt-50-justify,
         .txt-75-justify {

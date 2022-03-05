@@ -20,40 +20,31 @@ window.onscroll = () => {
 }
 
 function animateAndHighlight() {
-    var currentScrollItem = "";
+    let currentScrollItem = "";
 
     sections.forEach((s) => {
         if (scrollY >= s.offsetTop - (s.clientHeight * 0.5)) {
-            currentScrollItem = "navbar-" + s.getAttribute('id');
+            currentScrollItem = "nav-" + s.getAttribute('id');
             s.classList.add("segment-animate");
         }
     })
 
     navigationItems.forEach((i) => {
-        i.classList.remove("active");
+        i.classList.remove("nav-active");
         if (i.getAttribute('id') === currentScrollItem) {
-            i.classList.add("active");
+            i.classList.add("nav-active");
         }
     })
 }
 
-function openLink(type) {
-    var targetLink = "";
-    if (type == "i") {
-        targetLink = "https://www.instagram.com/yzhengting_/?hl=en";
-    } else if (type == "t") {
-        targetLink = "https://twitter.com/yzhengting_";
-    } else if (type == "g") {
-        targetLink = "https://github.com/ztdevelops";
-    }
-    window.open(targetLink, "_blank");
-}
+function scrollToSection(e) {
+    let target;
+    let targetId = e.getAttribute('aria-controls');
 
-function scrollToSection(targetID) {
-    var target;
+    if (targetId === null) return console.error('targetId is null; no such attribute "aria-controls".');
 
-    for (var i = 0; i < sections.length; i++) {
-        if (sections.item(i).getAttribute('id') === targetID.slice(7)) {
+    for (let i = 0; i < sections.length; i++) {
+        if (sections.item(i).getAttribute('id') === targetId) {
             target = sections.item(i);
             break;
         }
@@ -65,7 +56,28 @@ function scrollToSection(targetID) {
             left: 0,
             behavior: 'smooth'
         });
-    } catch (e) {
-        console.error(e);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+function displayContent(e) {
+    let targetButton = e.getAttribute('id');
+    let targetContent = e.getAttribute('aria-controls');
+    let tabs = document.querySelector('.tabs').children;
+    let contents = document.querySelector('.content').children;
+
+    for (let tab of tabs) {
+        tab.setAttribute('aria-selected', 'false');
+        if (tab.getAttribute('id') === targetButton) {
+            tab.setAttribute('aria-selected', 'true');
+        }
+    }
+
+    for (let content of contents) {
+        content.setAttribute('aria-current', 'false');
+        if (content.getAttribute('id') === targetContent) {
+            content.setAttribute('aria-current', 'true');
+        }
     }
 }
