@@ -304,7 +304,9 @@ footer {
                 blinking-animation var(--blink-speed) steps(5, start) infinite,
                 disappearing-animation steps(1) var(--h2-delay) forwards;
 
-    -webkit-animation: blinking-animation var(--blink-speed) steps(5, start) infinite;
+    -webkit-animation:  typing-animation var(--type-speed) steps(33) var(--h1-delay) forwards,
+                        blinking-animation var(--blink-speed) steps(5, start) infinite,
+                        disappearing-animation steps(1) var(--h2-delay) forwards;
 }
 
 .typewriter h2::before {
@@ -318,7 +320,8 @@ footer {
     animation:  typing-animation var(--type-speed) steps(26) var(--h2-delay) forwards,
                 blinking-animation var(--blink-speed) steps(5, start) infinite;
 
-    -webkit-animation: blinking-animation var(--blink-speed) steps(5, start) infinite;
+    -webkit-animation:  typing-animation var(--type-speed) steps(26) var(--h2-delay) forwards, 
+                        blinking-animation var(--blink-speed) steps(5, start) infinite;
 }
 
 .about-me-segment {
@@ -482,6 +485,12 @@ footer {
     }
 }
 
+@-webkit-keyframes typing-animation {
+    to {
+        left: 100%;
+    }
+}
+
 @keyframes appearing-animation {
     to {
         visibility: visible;
@@ -489,6 +498,12 @@ footer {
 }
 
 @keyframes disappearing-animation {
+    to {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes disappearing-animation {
     to {
         opacity: 0;
     }
