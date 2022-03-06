@@ -135,6 +135,7 @@ footer {
 .navigation {
     background: hsl(112, 1%, 100%, 0.1);
     backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
 }
 
 .logo {
