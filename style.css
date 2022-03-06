@@ -303,6 +303,8 @@ footer {
     animation:  typing-animation var(--type-speed) steps(33) var(--h1-delay) forwards,
                 blinking-animation var(--blink-speed) steps(5, start) infinite,
                 disappearing-animation steps(1) var(--h2-delay) forwards;
+
+    -webkit-animation: blinking-animation var(--blink-speed) steps(5, start) infinite;
 }
 
 .typewriter h2::before {
@@ -315,6 +317,8 @@ footer {
     background-color: white;
     animation:  typing-animation var(--type-speed) steps(26) var(--h2-delay) forwards,
                 blinking-animation var(--blink-speed) steps(5, start) infinite;
+
+    -webkit-animation: blinking-animation var(--blink-speed) steps(5, start) infinite;
 }
 
 .about-me-segment {
