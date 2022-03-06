@@ -500,6 +500,12 @@ footer {
     }
 }
 
+@-webkit-keyframes blinking-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
 @keyframes fade-in-bottom-animation {
     from {
         opacity: 0;
