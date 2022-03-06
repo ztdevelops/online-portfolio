@@ -3,6 +3,8 @@ const navigation: Element = document.querySelector('.navigation');
 const navigationToggle: Element = document.querySelector('.navigation-toggle');
 const sections: NodeListOf<HTMLElement> = document.querySelectorAll('section');
 const navigationItems: NodeListOf<HTMLElement> = document.querySelectorAll('header nav ul li')
+var navExpanded: boolean = (navigation.getAttribute('mobile-expanded') === "true");
+var navReady: boolean = false;
 
 // Onload event, to set active nav item and to animate the first segment.
 window.onload = () => {
@@ -14,14 +16,34 @@ window.onscroll = () => {
     animateAndHighlight();
 }
 
+window.onclick = (event) => {
+    if (navExpanded) {
+        if (navReady === false) {
+            navReady = true;
+            return
+        }
+        if (navReady === true) {
+            let userClicked = event.target;
+            if (userClicked !== navigation) {
+                navigation.setAttribute('mobile-expanded', "false");
+                navigationToggle.setAttribute('aria-expanded', "false");
+                navExpanded = false;
+                navReady = false;
+            }
+        }
+    }
+}
+
 // Adding an onclick event to the navbar toggle button. (toggle only available < 53.2rem)
 navigationToggle.addEventListener('click', () => {
-    let expanded: string = navigation.getAttribute('mobile-expanded');
-    let isExpanded: boolean = (expanded === "true");
-    let isExpandedUpdateTo: string = String(!isExpanded);
+    let navExpandedUpdate: string = String(!navExpanded);
 
-    navigation.setAttribute('mobile-expanded', isExpandedUpdateTo);
-    navigationToggle.setAttribute('aria-expanded', isExpandedUpdateTo);
+    navigation.setAttribute('mobile-expanded', navExpandedUpdate);
+    navigationToggle.setAttribute('aria-expanded', navExpandedUpdate);
+    navExpanded = !navExpanded;
+    if (!navExpanded) {
+        navReady = false;
+    }
 })
 
 // Function to animate segments and highlight active nav item.

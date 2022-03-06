@@ -3,6 +3,8 @@ var navigation = document.querySelector('.navigation');
 var navigationToggle = document.querySelector('.navigation-toggle');
 var sections = document.querySelectorAll('section');
 var navigationItems = document.querySelectorAll('header nav ul li');
+var navExpanded = (navigation.getAttribute('mobile-expanded') === "true");
+var navReady = false;
 // Onload event, to set active nav item and to animate the first segment.
 window.onload = function () {
     animateAndHighlight();
@@ -11,13 +13,32 @@ window.onload = function () {
 window.onscroll = function () {
     animateAndHighlight();
 };
+window.onclick = function (event) {
+    if (navExpanded) {
+        if (navReady === false) {
+            navReady = true;
+            return;
+        }
+        if (navReady === true) {
+            var userClicked = event.target;
+            if (userClicked !== navigation) {
+                navigation.setAttribute('mobile-expanded', "false");
+                navigationToggle.setAttribute('aria-expanded', "false");
+                navExpanded = false;
+                navReady = false;
+            }
+        }
+    }
+};
 // Adding an onclick event to the navbar toggle button. (toggle only available < 53.2rem)
 navigationToggle.addEventListener('click', function () {
-    var expanded = navigation.getAttribute('mobile-expanded');
-    var isExpanded = (expanded === "true");
-    var isExpandedUpdateTo = String(!isExpanded);
-    navigation.setAttribute('mobile-expanded', isExpandedUpdateTo);
-    navigationToggle.setAttribute('aria-expanded', isExpandedUpdateTo);
+    var navExpandedUpdate = String(!navExpanded);
+    navigation.setAttribute('mobile-expanded', navExpandedUpdate);
+    navigationToggle.setAttribute('aria-expanded', navExpandedUpdate);
+    navExpanded = !navExpanded;
+    if (!navExpanded) {
+        navReady = false;
+    }
 });
 // Function to animate segments and highlight active nav item.
 function animateAndHighlight() {
