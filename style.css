@@ -487,7 +487,7 @@ footer {
 
 @-webkit-keyframes typing-animation {
     to {
-        left: 100%;
+        -webkit-left: 100%;
     }
 }
 
@@ -505,7 +505,7 @@ footer {
 
 @-webkit-keyframes disappearing-animation {
     to {
-        opacity: 0;
+        -webkit-opacity: 0;
     }
 }
 
@@ -517,7 +517,7 @@ footer {
 
 @-webkit-keyframes blinking-animation {
     to {
-        visibility: hidden;
+        -webkit-visibility: hidden;
     }
 }
 
