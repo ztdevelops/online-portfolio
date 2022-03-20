@@ -503,12 +503,6 @@ footer {
     }
 }
 
-@-webkit-keyframes disappearing-animation {
-    to {
-        -webkit-opacity: 0;
-    }
-}
-
 @keyframes blinking-animation {
     to {
         visibility: hidden;
