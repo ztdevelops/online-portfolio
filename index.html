@@ -78,7 +78,7 @@
     </sidebar>
 
     <section id="preamble" class="container preamble-segment flex">
-        <img class="my-portrait" src="./src/user-placeholder.png">
+        <img class="my-portrait hover-effect" src="./src/self.jpg">
         <div class="typewriter">
             <h1>
                 Hello, my name is <span>Yue Zheng Ting</span>.
@@ -121,7 +121,7 @@
                     <li>Python</li>
                 </ul>
             </div>
-            <img class="about-me-img my-portrait flex" src="./src/user-placeholder.png">
+            <img class="about-me-img my-portrait hover-effect flex" src="./src/self.jpg">
         </div>
         </div>
     </section>
@@ -133,16 +133,28 @@
         <div class="experience-table">
             <div class="tabs">
                 <button id="tab-1" class="hover-effect" aria-selected="true" aria-controls="content-1" onclick="displayContent(this)">
-                    Singapore Armed Forces.
+                    KLASS Engineering. (Again!)
                 </button>
                 <button id="tab-2" class="hover-effect" aria-selected="false" aria-controls="content-2" onclick="displayContent(this)">
+                    Singapore Armed Forces.
+                </button>
+                <button id="tab-3" class="hover-effect" aria-selected="false" aria-controls="content-3" onclick="displayContent(this)">
                     KLASS Engineering.
                 </button>
             </div>
             <div class="content">
                 <div id="content-1" aria-current="true">
+                    <h3>Junior Software Engineer <span>at KLASS</span>.</h3>
+                    <p>May 2022 - Current</p>
+                    <ul>
+                        <li>
+                            Interacting with mostly Kafka, Golang, Milvus and Kubernetes. Fun stuff!
+                        </li>
+                    </ul>
+                </div>
+                <div id="content-2" aria-current="false">
                     <h3>Artillery Officer <span>at SAF</span>.</h3>
-                    <p>September 2021 - Current</p>
+                    <p>September 2021 - May 2022</p>
                     <ul>
                         <li>
                             Commissioned from the 122nd batch of Officer Cadet School as an Artillery Officer.
@@ -156,7 +168,7 @@
                         </li>
                     </ul>
                 </div>
-                <div id="content-2" aria-current="false">
+                <div id="content-3" aria-current="false">
                     <h3>Junior Software Engineer <span>at KLASS</span>.</h3>
                     <p>July 2019 - June 2020</p>
                     <ul>
