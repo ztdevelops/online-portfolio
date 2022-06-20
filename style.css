@@ -1,15 +1,15 @@
 :root {
-    --dark-bg-colour: #141e30;
-    --light-bg-colour: #17253b;
-    --primary-colour: gold;
+    --dark-bg-colour: black;
+    --light-bg-colour: rgb(29, 29, 29);
+    --primary-colour: #95ecc2;
     --dark-bg-colour-rgb: 20, 30, 48;
     --light-bg-colour-rgb: 23, 41, 59;
     --primary-colour-rgb: 255, 215, 0;
     --type-speed: 1s;
     --blink-speed: 750ms;
-    --h1-delay: 3s;
-    --h2-delay: calc(var(--h1-delay) + var(--type-speed) + 1.5s);
-    --h4-delay: calc(var(--h2-delay) + var(--type-speed) + 1.5s);
+    --h1-delay: 1s;
+    --h2-delay: calc(var(--h1-delay) + var(--type-speed) + 0.5s);
+    --h4-delay: calc(var(--h2-delay) + var(--type-speed) + 1s);
     --secondary-header-text-colour: rgba(255, 255, 255, 0.6);
     --fs-xl: clamp(2rem, 2.5vw + 1px, 3rem);
     --fs-md: clamp(1.5rem, 2vw + 1px, 2rem);
@@ -229,6 +229,7 @@ footer {
     height: 15vw;
     opacity: 0.2;
 }
+
 
 .typewriter h1 {
     font-size: var(--fs-xl);
